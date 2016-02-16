@@ -1,0 +1,33 @@
+<resources>
+    <!-- APP STRINGS -->
+    <string name="app_name">CodeBreakMBaaS</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_feed">Feed</string>
+
+    <!-- PARSE KEYS STRING -->
+    <string name="application_id">nOrMLTvfcZge5iPQ0Oe4jBNgBm9LJciOyd331C4i</string>
+    <string name="client_key">NPysAoXjRMpRjnI7XGFIwlNIV0CfrAUb5wL6Eusx</string>
+    <!-- END PARSE KEYS STRING -->
+
+    <!-- MENU STRINGS -->
+    <string name="action_settings">Settings</string>
+    <!-- END MENU STRINGS -->
+
+    <!-- HINT STRINGS -->
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Repeat your password</string>
+    <!-- END HINT STRINGS -->
+
+    <!-- TEXTVIEW STRINGS -->
+    <string name="text_view_or">OR</string>
+    <!-- END TEXTVIEW STRINGS -->
+
+    <!-- BUTTON STRINGS -->
+    <string name="button_sign_in">SIGN IN</string>
+    <string name="button_sign_up">SIGN UP</string>
+    <!-- END BUTTON STRINGS -->
+
+    <!-- END APP STRINGS -->
+</resources>
