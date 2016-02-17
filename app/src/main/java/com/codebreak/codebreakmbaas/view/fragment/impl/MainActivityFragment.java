@@ -140,6 +140,11 @@ public class MainActivityFragment extends Fragment implements IUserView, View.On
     }
 
     @Override
+    public void showMainActivity() {
+
+    }
+
+    @Override
     public void showFeedActivity() {
         startActivity(new Intent(getFragmentContext(), FeedActivity.class));
         getFragmentContext().finish();

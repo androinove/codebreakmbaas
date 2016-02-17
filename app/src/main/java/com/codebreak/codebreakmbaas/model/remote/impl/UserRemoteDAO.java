@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar;
 import com.codebreak.codebreakmbaas.model.remote.IUserRemoteDAO;
 import com.codebreak.codebreakmbaas.presenter.IUserPresenter;
 import com.parse.LogInCallback;
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -70,6 +71,15 @@ public class UserRemoteDAO implements IUserRemoteDAO {
 
     @Override
     public void signOut() {
-
+        ParseUser.logOutInBackground(new LogOutCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    mIUserPresenter.showMainActivity();
+                } else {
+                    mIUserPresenter.showSnackbarMessage("Algo deu errado: " + e.getMessage(), Snackbar.LENGTH_LONG);
+                }
+            }
+        });
     }
 }

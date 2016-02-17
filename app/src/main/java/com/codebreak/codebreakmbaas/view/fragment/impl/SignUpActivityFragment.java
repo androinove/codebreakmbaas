@@ -109,6 +109,11 @@ public class SignUpActivityFragment extends Fragment implements View.OnClickList
     }
 
     @Override
+    public void showMainActivity() {
+
+    }
+
+    @Override
     public void showFeedActivity() {
         startActivity(new Intent(getFragmentContext(), FeedActivity.class));
         getFragmentContext().setResult(AppCompatActivity.RESULT_OK);

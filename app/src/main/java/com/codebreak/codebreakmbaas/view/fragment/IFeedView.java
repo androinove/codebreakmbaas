@@ -19,6 +19,8 @@ public interface IFeedView {
 
     void showSnackbarMessage(int resId, int duration);
 
+    void showMainActivity();
+
     void showContactDetailActivity();
 
     Activity getFragmentActivity();

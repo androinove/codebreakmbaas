@@ -86,6 +86,11 @@ public class UserPresenter implements IUserPresenter {
     }
 
     @Override
+    public void showMainActivity() {
+        this.mIUserView.showMainActivity();
+    }
+
+    @Override
     public void showFeedActivity() {
         this.mIUserView.showFeedActivity();
     }

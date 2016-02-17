@@ -23,6 +23,8 @@ public interface IUserView {
 
     void hideLoadingLayout();
 
+    void showMainActivity();
+
     void showFeedActivity();
 
     Activity getFragmentContext();

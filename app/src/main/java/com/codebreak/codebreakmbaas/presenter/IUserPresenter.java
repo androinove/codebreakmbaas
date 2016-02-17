@@ -33,6 +33,8 @@ public interface IUserPresenter {
 
     void hideLoadingLayout();
 
+    void showMainActivity();
+
     void showFeedActivity();
 
     Activity getFragmentContext();
