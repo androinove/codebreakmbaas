@@ -40,7 +40,7 @@ public class NewContactActivity extends AppCompatActivity {
     }
 
     private void back() {
-        setResult(AppCompatActivity.RESULT_OK);
+        setResult(AppCompatActivity.RESULT_CANCELED);
         finish();
     }
 

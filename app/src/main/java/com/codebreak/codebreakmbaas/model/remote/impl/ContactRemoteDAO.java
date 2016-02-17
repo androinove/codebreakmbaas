@@ -1,5 +1,7 @@
 package com.codebreak.codebreakmbaas.model.remote.impl;
 
+import android.support.design.widget.Snackbar;
+
 import com.codebreak.codebreakmbaas.model.remote.IContactRemoteDAO;
 import com.codebreak.codebreakmbaas.presenter.IContactPresenter;
 import com.parse.ParseException;
@@ -33,10 +35,18 @@ public class ContactRemoteDAO implements IContactRemoteDAO {
 
     @Override
     public void saveContact(ParseObject newContact) {
+        mIContactPresenter.hideRootLayout();
+        mIContactPresenter.showLoadingLayout();
         newContact.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-
+                if (e == null) {
+                    mIContactPresenter.showMainActivity();
+                } else {
+                    mIContactPresenter.hideLoadingLayout();
+                    mIContactPresenter.showRootLayout();
+                    mIContactPresenter.showSnackbarMessage("Erro ao salvar contato: " + e.getMessage(), Snackbar.LENGTH_LONG);
+                }
             }
         });
     }

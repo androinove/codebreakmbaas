@@ -5,58 +5,87 @@ import android.app.Activity;
 import com.codebreak.codebreakmbaas.model.remote.IContactRemoteDAO;
 import com.codebreak.codebreakmbaas.model.remote.impl.ContactRemoteDAO;
 import com.codebreak.codebreakmbaas.presenter.IContactPresenter;
-import com.codebreak.codebreakmbaas.view.fragment.IFeedView;
+import com.codebreak.codebreakmbaas.view.fragment.IContactView;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
+import java.util.Stack;
 
 /**
  * Created by PedroFelipe on 16/02/2016.
  */
 public class ContactPresenter implements IContactPresenter {
 
-    private IFeedView mIFeedView;
+    private IContactView mIContactView;
     private IContactRemoteDAO mIContactRemoteDAO;
 
-    public ContactPresenter(IFeedView iFeedView) {
-        this.mIFeedView = iFeedView;
+    public ContactPresenter(IContactView iContactView) {
+        this.mIContactView = iContactView;
         this.mIContactRemoteDAO = ContactRemoteDAO.getInstance(ContactPresenter.this);
     }
 
     @Override
+    public void saveContact(ParseObject newContact) {
+        this.mIContactRemoteDAO.saveContact(newContact);
+    }
+
+    @Override
+    public void updateContact(ParseObject contact) {
+
+    }
+
+    @Override
+    public void deleteContact(ParseObject parseObject) {
+
+    }
+
+    @Override
+    public Stack<ParseObject> getContacts(ParseUser parseUser) {
+        return null;
+    }
+
+    @Override
     public void showRootLayout() {
-        this.mIFeedView.showRootLayout();
+        this.mIContactView.showRootLayout();
     }
 
     @Override
     public void hideRootLayout() {
-        this.mIFeedView.hideRootLayout();
+        this.mIContactView.hideRootLayout();
     }
 
     @Override
     public void showLoadingLayout() {
-        this.mIFeedView.showLoadingLayout();
+        this.mIContactView.showLoadingLayout();
     }
 
     @Override
     public void hideLoadingLayout() {
-        this.mIFeedView.hideLoadingLayout();
+        this.mIContactView.hideLoadingLayout();
     }
 
     @Override
     public void showSnackbarMessage(String message, int duration) {
-        this.mIFeedView.showSnackbarMessage(message, duration);
+        this.mIContactView.showSnackbarMessage(message, duration);
     }
 
     @Override
     public void showSnackbarMessage(int resId, int duration) {
-        this.mIFeedView.showSnackbarMessage(resId, duration);
+        this.mIContactView.showSnackbarMessage(resId, duration);
+    }
+
+    @Override
+    public void showMainActivity() {
+        this.mIContactView.showMainActivity();
     }
 
     @Override
     public void showContactDetailActivity() {
-        this.mIFeedView.showContactDetailActivity();
+        this.mIContactView.showContactDetailActivity();
     }
 
     @Override
     public Activity getFragmentActivity() {
-        return this.mIFeedView.getFragmentActivity();
+        return this.mIContactView.getFragmentActivity();
     }
 }

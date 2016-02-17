@@ -49,7 +49,7 @@ public class FeedActivityFragment extends Fragment implements IFeedView, IUserVi
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+            super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
