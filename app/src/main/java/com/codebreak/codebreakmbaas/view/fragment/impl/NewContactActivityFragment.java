@@ -31,6 +31,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -152,6 +153,11 @@ public class NewContactActivityFragment extends Fragment implements View.OnClick
         cursor.moveToFirst();
         int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
         return cursor.getString(idx);
+    }
+
+    @Override
+    public void showContactsOnUI(List<ParseObject> contacts) {
+
     }
 
     @Override

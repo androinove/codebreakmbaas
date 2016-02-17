@@ -9,7 +9,7 @@ import com.codebreak.codebreakmbaas.view.fragment.IContactView;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import java.util.Stack;
+import java.util.List;
 
 /**
  * Created by PedroFelipe on 16/02/2016.
@@ -40,8 +40,13 @@ public class ContactPresenter implements IContactPresenter {
     }
 
     @Override
-    public Stack<ParseObject> getContacts(ParseUser parseUser) {
-        return null;
+    public void getContacts(ParseUser parseUser) {
+        this.mIContactRemoteDAO.getContacts(parseUser);
+    }
+
+    @Override
+    public void showContactsOnUI(List<ParseObject> contacts) {
+        this.mIContactView.showContactsOnUI(contacts);
     }
 
     @Override

@@ -13,14 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.codebreak.codebreakmbaas.R;
+import com.codebreak.codebreakmbaas.presenter.IContactPresenter;
 import com.codebreak.codebreakmbaas.presenter.IUserPresenter;
+import com.codebreak.codebreakmbaas.presenter.impl.ContactPresenter;
 import com.codebreak.codebreakmbaas.presenter.impl.UserPresenter;
 import com.codebreak.codebreakmbaas.util.Constants;
 import com.codebreak.codebreakmbaas.util.GenericSnackbar;
 import com.codebreak.codebreakmbaas.view.activity.impl.MainActivity;
 import com.codebreak.codebreakmbaas.view.activity.impl.NewContactActivity;
+import com.codebreak.codebreakmbaas.view.fragment.IContactView;
 import com.codebreak.codebreakmbaas.view.fragment.IFeedView;
 import com.codebreak.codebreakmbaas.view.fragment.IUserView;
+import com.parse.ParseObject;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,10 +34,11 @@ import butterknife.OnClick;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class FeedActivityFragment extends Fragment implements IFeedView, IUserView, View.OnClickListener {
+public class FeedActivityFragment extends Fragment implements IFeedView, IContactView, IUserView, View.OnClickListener {
 
     private View mView;
     private IUserPresenter mIUserPresenter;
+    private IContactPresenter mIContactPresenter;
 
     public FeedActivityFragment() {
 
@@ -43,13 +50,19 @@ public class FeedActivityFragment extends Fragment implements IFeedView, IUserVi
         this.mView = inflater.inflate(R.layout.fragment_feed, container, false);
         ButterKnife.bind(FeedActivityFragment.this, this.mView);
         this.mIUserPresenter = new UserPresenter(FeedActivityFragment.this);
+        this.mIContactPresenter = new ContactPresenter(FeedActivityFragment.this);
         setHasOptionsMenu(true);
         return this.mView;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
+        super.onViewCreated(view, savedInstanceState);
+        getContacts();
+    }
+
+    private void getContacts() {
+        this.mIContactPresenter.getContacts(this.mIUserPresenter.getCurrentUser());
     }
 
     @Override
@@ -82,6 +95,14 @@ public class FeedActivityFragment extends Fragment implements IFeedView, IUserVi
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.d(Constants.DEBUG_KEY, "requestCode -> " + requestCode + ", resultCode -> " + resultCode + ", data -> " + data);
+    }
+
+    @Override
+    public void showContactsOnUI(List<ParseObject> contacts) {
+        Log.d(Constants.DEBUG_KEY, "Contacts Size -> " + contacts.size());
+        for (int i = 0; i < contacts.size(); i++) {
+            Log.d(Constants.DEBUG_KEY, "Contact -> " + contacts.get(i).get("name"));
+        }
     }
 
     @Override

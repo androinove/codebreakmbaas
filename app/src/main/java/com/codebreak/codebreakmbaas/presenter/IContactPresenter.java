@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import java.util.Stack;
+import java.util.List;
 
 /**
  * Created by PedroFelipe on 16/02/2016.
@@ -18,7 +18,9 @@ public interface IContactPresenter {
 
     void deleteContact(ParseObject parseObject);
 
-    Stack<ParseObject> getContacts(ParseUser parseUser);
+    void getContacts(ParseUser parseUser);
+
+    void showContactsOnUI(List<ParseObject> contacts);
 
     void showRootLayout();
 
