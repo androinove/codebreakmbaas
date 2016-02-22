@@ -32,10 +32,12 @@
     <string name="button_sign_up">SIGN UP</string>
     <string name="button_take_picture">TAKE PICTURE</string>
     <string name="button_save_contact">SAVE</string>
+    <string name="button_back">BACK</string>
     <!-- END BUTTON STRINGS -->
 
     <!-- MENU STRINGS -->
     <string name="menu_logout">Logout</string>
+    <string name="title_activity_contact_details">Contact Details</string>
     <!-- END MENU STRINGS -->
 
     <!-- END APP STRINGS -->

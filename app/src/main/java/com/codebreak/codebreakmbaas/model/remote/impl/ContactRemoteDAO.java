@@ -1,9 +1,11 @@
 package com.codebreak.codebreakmbaas.model.remote.impl;
 
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 
 import com.codebreak.codebreakmbaas.model.remote.IContactRemoteDAO;
 import com.codebreak.codebreakmbaas.presenter.IContactPresenter;
+import com.codebreak.codebreakmbaas.util.Constants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -65,18 +67,19 @@ public class ContactRemoteDAO implements IContactRemoteDAO {
 
     @Override
     public void getContacts(ParseUser parseUser) {
-        mIContactPresenter.hideRootLayout();
-        mIContactPresenter.showLoadingLayout();
+        Log.d(Constants.DEBUG_KEY, "Entrou de novo");
+        mIContactPresenter.showRefresh();
         ParseQuery<ParseObject> parseContacts = ParseQuery.getQuery("Contact");
         parseContacts.whereEqualTo("user", parseUser);
         parseContacts.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
+                    Log.d(Constants.DEBUG_KEY, "Chamando objetos -> " + objects.size());
                     mIContactPresenter.showContactsOnUI(objects);
-                    mIContactPresenter.hideLoadingLayout();
-                    mIContactPresenter.showRootLayout();
+                    mIContactPresenter.hideRefresh();
                 } else {
+                    mIContactPresenter.hideRefresh();
                     mIContactPresenter.showSnackbarMessage("Algo deu errado: " + e.getMessage(), Snackbar.LENGTH_LONG);
                 }
             }

@@ -10,16 +10,63 @@
     android:layout_marginStart="-3dp"
     android:layout_marginRight="-3dp"
     android:layout_marginEnd="-3dp"
+    res-auto:cardElevation="0dp"
     res-auto:cardCornerRadius="0dp"
     res-auto:cardPreventCornerOverlap="false">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circle_image_view_contact"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+    <RelativeLayout
+        android:id="@+id/relative_layout_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_view_contact"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_contact_name_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@+id/circle_image_view_contact"
+            android:layout_toEndOf="@+id/circle_image_view_contact"
+            android:layout_alignTop="@+id/circle_image_view_contact"
+            android:layout_alignBottom="@+id/circle_image_view_contact"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/text_view_contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/text_view_contact_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_below="@+id/text_view_contact_name"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

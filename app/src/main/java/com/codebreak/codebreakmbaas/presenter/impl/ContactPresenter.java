@@ -21,7 +21,7 @@ public class ContactPresenter implements IContactPresenter {
 
     public ContactPresenter(IContactView iContactView) {
         this.mIContactView = iContactView;
-        this.mIContactRemoteDAO = ContactRemoteDAO.getInstance(ContactPresenter.this);
+        this.mIContactRemoteDAO = ContactRemoteDAO.getInstance(this);
     }
 
     @Override
@@ -42,6 +42,16 @@ public class ContactPresenter implements IContactPresenter {
     @Override
     public void getContacts(ParseUser parseUser) {
         this.mIContactRemoteDAO.getContacts(parseUser);
+    }
+
+    @Override
+    public void showRefresh() {
+        this.mIContactView.showRefresh();
+    }
+
+    @Override
+    public void hideRefresh() {
+        this.mIContactView.hideRefresh();
     }
 
     @Override

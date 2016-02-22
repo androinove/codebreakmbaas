@@ -11,6 +11,10 @@ import java.util.List;
  */
 public interface IContactView {
 
+    void showRefresh();
+
+    void hideRefresh();
+
     void showContactsOnUI(List<ParseObject> contacts);
 
     void showRootLayout();

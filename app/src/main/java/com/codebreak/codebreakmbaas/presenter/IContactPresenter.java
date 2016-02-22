@@ -20,6 +20,10 @@ public interface IContactPresenter {
 
     void getContacts(ParseUser parseUser);
 
+    void showRefresh();
+
+    void hideRefresh();
+
     void showContactsOnUI(List<ParseObject> contacts);
 
     void showRootLayout();

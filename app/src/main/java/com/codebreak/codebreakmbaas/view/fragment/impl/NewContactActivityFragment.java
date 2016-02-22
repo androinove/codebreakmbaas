@@ -156,6 +156,16 @@ public class NewContactActivityFragment extends Fragment implements View.OnClick
     }
 
     @Override
+    public void showRefresh() {
+
+    }
+
+    @Override
+    public void hideRefresh() {
+
+    }
+
+    @Override
     public void showContactsOnUI(List<ParseObject> contacts) {
 
     }

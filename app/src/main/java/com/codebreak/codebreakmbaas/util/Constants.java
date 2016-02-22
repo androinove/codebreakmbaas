@@ -11,7 +11,7 @@ public class Constants {
     // URL's
 
     // SharedPreferences Key
-    public static final String SHARED_PREFS_USER = "allin_app_user";
+    public static final String SHARED_PREFS_CONTACT = "allin_app_contact";
 
     // Users Values
     public static final int NO_USER = 0;
